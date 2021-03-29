@@ -1,0 +1,84 @@
+<h1 class="text-center mt-2">Angular Firebase Data</h1>
+<hr>
+<div class="row mt-2">
+    <div class="col-md-6">
+<h2 class="text-center mt-2">Registration</h2>
+<form [formGroup]="createCustomer" (ngSubmit)="createSubmit(createCustomer.value)" novalidate>
+            <div class="row">
+                <div class="col">
+
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input id="firstname" class="form-control" type="text" name="firstname"
+                            formControlName="firstname">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input id="lastname" class="form-control" type="text" name="lastname"
+                            formControlName="lastname">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" formControlName="address" class="form-control" name="address"
+                    rows="3"></textarea>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input id="mobile" formControlName="mobile" class="form-control" type="number" name="mobile">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input id="email" class="form-control" type="email" name="email" formControlName="email">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+
+                    <button class="btn btn-block btn-success" type="submit">Save</button>
+                </div>
+                <div class="col">
+
+                    <button class="btn btn-block btn-danger" type="reset">Reset</button>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+    <div class="col-md-6">
+<h2 class="text-center mt-2">Show Data</h2>
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th> Full Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of banty">
+                    <td>{{u.firstname}} {{u.lastname}}</td>
+                    <td>{{u.mobile}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.address}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="delete(u.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

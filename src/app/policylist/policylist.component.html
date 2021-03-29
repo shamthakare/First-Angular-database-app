@@ -1,0 +1,35 @@
+<div class="col-md-6">
+  <form [formGroup]="addpolicy" (ngSubmit)="create(addpolicy.value)">
+    policyNumber <input type="text" name="policyNumber" formControlName="policyNumber" id="policyNumber"> <br> <br>
+    creationDate <input type="date" name="creationDate" formControlName="creationDate" id="creationDate"> <br> <br>
+    effectiveDate <input type="date" name="effectiveDate" formControlName="effectiveDate" id="effectiveDate"> <br> <br>
+    expireDate <input type="date" name="expireDate" formControlName="expireDate" id="expireDate"> <br> <br>
+    paymentOption <input type="text" name="paymentOption" formControlName="paymentOption" id="paymentOption"> <br> <br>
+    policyAmount <input type="number" name="policyAmount" formControlName="policyAmount" id="policyAmount"> <br> <br>
+    extraInfo <input type="text" name="extraInfo" formControlName="extraInfo" id="extraInfo"> <br> <br>
+    <button>Save</button>
+  </form>
+</div>
+<div class="col-md-6">
+  <table class="table">
+    <thead>
+      <th>Number</th>
+      <th>Created At</th>
+      <th>Expire At</th>
+      <th>Amount</th>
+      <th>action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let policy of policies">
+
+        <td>{{policy.policyNumber}}</td>
+        <td>{{policy.creationDate}}</td>
+        <td>{{policy.expireDate}}</td>
+        <td>{{policy.policyAmount}}</td>
+        <td>
+          <button (click)="delete(policy.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
